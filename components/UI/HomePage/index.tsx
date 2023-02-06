@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, SafeAreaView, ScrollView } from "react-native";
+import { View, Text, SafeAreaView, ScrollView, Platform } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import TopComponents from "./TopComponent";
@@ -20,7 +20,7 @@ export default function Homepage() {
       <View
         style={{
           paddingHorizontal: 20,
-          paddingTop: "10%",
+          paddingTop: Platform.OS === 'android'? "20%" : '10%',
         }}
       >
         <View
