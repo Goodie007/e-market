@@ -12,7 +12,7 @@ export default function Homepage() {
   return (
     <SafeAreaView
       style={{
-        backgroundColor: "#D3D3D3",
+        backgroundColor: "#EDEDED",
         height: "100%",
       }}
     >
