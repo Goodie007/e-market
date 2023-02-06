@@ -1,7 +1,13 @@
-import React from "react";
-import { View, Text } from "react-native";
+import React, { useState } from "react";
+import { View, Text, Pressable } from "react-native";
+import { Feather } from "@expo/vector-icons";
 
 export default function TopComponent() {
+  const [showEye, setShowEye] = useState(false);
+
+  const showBalance = () => {
+    setShowEye(!showEye);
+  };
   return (
     <View
       style={{
@@ -21,15 +27,31 @@ export default function TopComponent() {
           paddingVertical: 10,
         }}
       >
-        <Text
+        <View
           style={{
-            fontSize: 16,
-            color: "#FFFFFF",
-            fontFamily: "Raleway-Regular",
+            flexDirection: "row",
+            justifyContent: "space-between",
           }}
         >
-          Wallet Balance
-        </Text>
+          <Text
+            style={{
+              fontSize: 16,
+              color: "#FFFFFF",
+              fontFamily: "Raleway-Regular",
+            }}
+          >
+            Wallet Balance
+          </Text>
+          <Pressable
+            onPress={showBalance}
+          >
+            {showEye ? (
+              <Feather name="eye-off" size={24} color="#FFFFFF" />
+            ) : (
+              <Feather name="eye" size={24} color="#FFFFFF" />
+            )}
+          </Pressable>
+        </View>
         <Text
           style={{
             fontSize: 24,
@@ -37,7 +59,7 @@ export default function TopComponent() {
             fontFamily: "Raleway-Bold",
           }}
         >
-          N100,000
+         {showEye ?  'N100,000' : '****' }
         </Text>
       </View>
       <View
@@ -48,19 +70,23 @@ export default function TopComponent() {
         }}
       >
         <Text
-             style={{
-                fontSize: 16,
-                color: "#FFFFFF",
-                fontFamily: "Raleway-Regular",
-              }}
-        >Transaction History</Text>
+          style={{
+            fontSize: 16,
+            color: "#FFFFFF",
+            fontFamily: "Raleway-Regular",
+          }}
+        >
+          Transaction History
+        </Text>
         <Text
-             style={{
-                fontSize: 16,
-                color: "#FFFFFF",
-                fontFamily: "Raleway-Regular",
-              }}
-        >Withdraw</Text>
+          style={{
+            fontSize: 16,
+            color: "#FFFFFF",
+            fontFamily: "Raleway-Regular",
+          }}
+        >
+          Withdraw
+        </Text>
       </View>
     </View>
   );
