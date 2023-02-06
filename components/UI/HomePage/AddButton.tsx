@@ -12,7 +12,7 @@ export default function AddButton(){
                 backgroundColor: '#063970',
                 alignItems: 'center',
                 justifyContent: 'center',
-                bottom: 80,
+                bottom: 50,
                 right: 30,
                 position: 'absolute',
             }}
