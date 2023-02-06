@@ -10,6 +10,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
 import { ColorSchemeName, Pressable } from 'react-native';
 import Homepage from '../components/UI/HomePage';
+import { Entypo } from '@expo/vector-icons';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
@@ -17,6 +18,7 @@ import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import TabOneScreen from '../screens/TabOneScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
+import Wallet from '../screens/Wallet';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 
@@ -71,6 +73,15 @@ function BottomTabNavigator() {
             title: 'Homepage',
             headerShown: false,
             tabBarIcon: ({ color }) => <Foundation name="home" size={24} color="#063970" />, 
+          }}
+         />
+          <BottomTab.Screen
+          name="Wallet"
+          component={Wallet}
+          options={{
+            title: 'Wallet',
+            headerShown: false,
+            tabBarIcon: ({ color }) => <Entypo name="wallet" size={24} color="#063970" />, 
           }}
          />
       {/* <BottomTab.Screen
