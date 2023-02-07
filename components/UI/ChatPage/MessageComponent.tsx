@@ -1,5 +1,13 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { View, Text, FlatList, Image, Pressable, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  FlatList,
+  Image,
+  Pressable,
+  TouchableOpacity,
+} from "react-native";
 
 const pexel = require("../../../assets/images/pexel.jpg");
 const two = require("../../../assets/images/pexel2.jpg");
@@ -16,6 +24,8 @@ type ItemsProps = {
 };
 
 export default function MessageComponent() {
+  const navigation = useNavigation();
+
   const Data = [
     {
       id: "0",
@@ -123,11 +133,13 @@ export default function MessageComponent() {
                 <Text>{messageTime}</Text>
               </View>
               <Text
-                 style={{
-                    fontFamily: "Raleway-Bold",
-                    fontSize: 14,
-                  }}
-              >{messageText}</Text>
+                style={{
+                  fontFamily: "Raleway-Bold",
+                  fontSize: 14,
+                }}
+              >
+                {messageText}
+              </Text>
             </View>
           </View>
         </View>
@@ -145,14 +157,18 @@ export default function MessageComponent() {
         data={Data}
         renderItem={({ item }) => {
           return (
-            <TouchableOpacity>
-            <Items
-              id={""}
-              messageText={item.messageText}
-              messageTime={item.messageTime}
-              userName={item.userName}
-              userImg={item.userImg}
-            />
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('Message');
+              }}
+            >
+              <Items
+                id={""}
+                messageText={item.messageText}
+                messageTime={item.messageTime}
+                userName={item.userName}
+                userImg={item.userImg}
+              />
             </TouchableOpacity>
           );
         }}
