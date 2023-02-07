@@ -44,7 +44,7 @@ function FilterMenuItem({
         justifyContent: "center",
         alignItems: "center",
         height: 42,
-        backgroundColor: isSelected ? "blue" : "#FFF",
+        backgroundColor: isSelected ? "#BBBBBB" : "#FFF",
         width: getItemWidth(),
       }}
       onPress={() => {
