@@ -3,7 +3,7 @@
  * https://reactnavigation.org/docs/getting-started
  *
  */
-import { FontAwesome, Foundation } from '@expo/vector-icons';
+import { AntDesign, FontAwesome, Foundation } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -11,6 +11,7 @@ import * as React from 'react';
 import { ColorSchemeName, Pressable } from 'react-native';
 import Homepage from '../components/UI/HomePage';
 import { Entypo } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
@@ -22,6 +23,8 @@ import Wallet from '../screens/Wallet';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 import Order from '../components/UI/Order';
+import ChatPage from '../components/UI/ChatPage';
+import ChatRoom from '../components/UI/ChatPage/ChatRoom';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -44,6 +47,7 @@ function RootNavigator() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
+      <Stack.Screen name='Message' component={ChatRoom} />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
@@ -94,6 +98,16 @@ function BottomTabNavigator() {
             tabBarIcon: ({ color }) => <Entypo name="wallet" size={24} color="#063970" />, 
           }}
          />
+          <BottomTab.Screen
+          name="Message"
+          component={ChatPage}
+          options={{
+            title: 'Message',
+            headerShown: false,
+            tabBarIcon: ({ color }) =>  <Entypo name="mail" size={24} color="#063970" />, 
+          }}
+         />
+
          
       {/* <BottomTab.Screen
         name="TabOne"
