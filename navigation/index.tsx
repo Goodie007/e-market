@@ -21,6 +21,7 @@ import TabTwoScreen from '../screens/TabTwoScreen';
 import Wallet from '../screens/Wallet';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
+import Order from '../components/UI/Order';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -84,6 +85,16 @@ function BottomTabNavigator() {
             tabBarIcon: ({ color }) => <Entypo name="wallet" size={24} color="#063970" />, 
           }}
          />
+          <BottomTab.Screen
+          name="Order"
+          component={Order}
+          options={{
+            title: 'Order',
+            headerShown: false,
+            tabBarIcon: ({ color }) => <Entypo name="wallet" size={24} color="#063970" />, 
+          }}
+         />
+         
       {/* <BottomTab.Screen
         name="TabOne"
         component={TabOneScreen}
