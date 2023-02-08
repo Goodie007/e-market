@@ -12,7 +12,7 @@ import {
 } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
-import { ColorSchemeName, Pressable } from "react-native";
+import { ColorSchemeName, Platform, Pressable } from "react-native";
 import Homepage from "../components/UI/HomePage";
 import { Entypo } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
@@ -37,6 +37,8 @@ import ChatRoom from "../components/UI/ChatPage/ChatRoom";
 import Hompage from "../screens/Home";
 import { BlurView } from "expo-blur";
 //import { BlurView } from "expo-blur";
+
+const arrowBack = require('../../Remake/assets/icons/chevron-left.png')
 
 export default function Navigation({
   colorScheme,
@@ -67,7 +69,20 @@ function RootNavigator() {
         component={BottomTabNavigator}
         options={{ headerShown: false }}
       />
-      <Stack.Screen name="Message" component={ChatRoom} />
+      <Stack.Screen
+        name="ChatRoom"
+        component={ChatRoom}
+        options={{
+          //headerBackImageSource: require('../assets/icons/chevron-left'),
+          headerBackImageSource: arrowBack,
+          headerTitleAlign: 'center',
+          title: 'chatty',
+          headerShadowVisible: false,
+          headerBackTitleVisible: false,
+        }}
+        //initialParams={}
+        
+      />
       <Stack.Screen
         name="NotFound"
         component={NotFoundScreen}

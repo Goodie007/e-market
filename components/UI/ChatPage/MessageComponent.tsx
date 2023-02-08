@@ -27,7 +27,7 @@ export default function MessageComponent() {
   const navigation = useNavigation();
 
   const handleChange = () => {
-    navigation.navigate("Message");
+   
   }
 
   const Data = [
@@ -187,7 +187,9 @@ export default function MessageComponent() {
         renderItem={({ item }) => {
           return (
             <TouchableOpacity
-              onPress={handleChange}
+              onPress={() => {
+                navigation.navigate("ChatRoom", {userName: item.userName});
+              }}
             >
               <Items
                 id={""}
