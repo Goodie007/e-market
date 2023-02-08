@@ -3,35 +3,51 @@
  * https://reactnavigation.org/docs/getting-started
  *
  */
-import { AntDesign, FontAwesome, Foundation } from '@expo/vector-icons';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import * as React from 'react';
-import { ColorSchemeName, Pressable } from 'react-native';
-import Homepage from '../components/UI/HomePage';
-import { Entypo } from '@expo/vector-icons';
-import { Feather } from '@expo/vector-icons';
+import { AntDesign, FontAwesome, Foundation } from "@expo/vector-icons";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import {
+  NavigationContainer,
+  DefaultTheme,
+  DarkTheme,
+} from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import * as React from "react";
+import { ColorSchemeName, Pressable } from "react-native";
+import Homepage from "../components/UI/HomePage";
+import { Entypo } from "@expo/vector-icons";
+import { Feather } from "@expo/vector-icons";
 
-import Colors from '../constants/Colors';
-import useColorScheme from '../hooks/useColorScheme';
-import ModalScreen from '../screens/ModalScreen';
-import NotFoundScreen from '../screens/NotFoundScreen';
-import TabOneScreen from '../screens/TabOneScreen';
-import TabTwoScreen from '../screens/TabTwoScreen';
-import Wallet from '../screens/Wallet';
-import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
-import LinkingConfiguration from './LinkingConfiguration';
-import Order from '../components/UI/Order';
-import ChatPage from '../components/UI/ChatPage';
-import ChatRoom from '../components/UI/ChatPage/ChatRoom';
+import Colors from "../constants/Colors";
+import useColorScheme from "../hooks/useColorScheme";
+import ModalScreen from "../screens/ModalScreen";
+import NotFoundScreen from "../screens/NotFoundScreen";
+import TabOneScreen from "../screens/TabOneScreen";
+import TabTwoScreen from "../screens/TabTwoScreen";
+import Wallet from "../screens/Wallet";
+import {
+  RootStackParamList,
+  RootTabParamList,
+  RootTabScreenProps,
+} from "../types";
+import LinkingConfiguration from "./LinkingConfiguration";
+import Order from "../components/UI/Order";
+import ChatPage from "../components/UI/ChatPage";
+import ChatRoom from "../components/UI/ChatPage/ChatRoom";
+//import { createDrawerNavigator } from '@react-navigation/drawer';
+import Hompage from "../screens/Home";
+import { BlurView } from "expo-blur";
+//import { BlurView } from "expo-blur";
 
-export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
+export default function Navigation({
+  colorScheme,
+}: {
+  colorScheme: ColorSchemeName;
+}) {
   return (
     <NavigationContainer
       linking={LinkingConfiguration}
       //theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}
-      >
+    >
       <RootNavigator />
     </NavigationContainer>
   );
@@ -46,10 +62,18 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 function RootNavigator() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
-      <Stack.Screen name='Message' component={ChatRoom} />
-      <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
-      <Stack.Group screenOptions={{ presentation: 'modal' }}>
+      <Stack.Screen
+        name="Root"
+        component={BottomTabNavigator}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen name="Message" component={ChatRoom} />
+      <Stack.Screen
+        name="NotFound"
+        component={NotFoundScreen}
+        options={{ title: "Oops!" }}
+      />
+      <Stack.Group screenOptions={{ presentation: "modal" }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
       </Stack.Group>
     </Stack.Navigator>
@@ -70,45 +94,65 @@ function BottomTabNavigator() {
       initialRouteName="TabOne"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
-      }}>
-        <BottomTab.Screen
-          name="Home"
-          component={Homepage}
-          options={{
-            title: 'Homepage',
-            headerShown: false,
-            tabBarIcon: ({ color }) => <Foundation name="home" size={24} color="#063970" />, 
-          }}
-         />
-          <BottomTab.Screen
-          name="Wallet"
-          component={Wallet}
-          options={{
-            title: 'Wallet',
-            headerShown: false,
-            tabBarIcon: ({ color }) => <Entypo name="wallet" size={24} color="#063970" />, 
-          }}
-         />
-          <BottomTab.Screen
-          name="Order"
-          component={Order}
-          options={{
-            title: 'Order',
-            headerShown: false,
-            tabBarIcon: ({ color }) => <Entypo name="wallet" size={24} color="#063970" />, 
-          }}
-         />
-          <BottomTab.Screen
-          name="Message"
-          component={ChatPage}
-          options={{
-            title: 'Message',
-            headerShown: true,
-            tabBarIcon: ({ color }) =>  <Entypo name="mail" size={24} color="#063970" />, 
-          }}
-         />
+      }}
+    >
+      <BottomTab.Screen
+        name="Home"
+        component={Homepage}
+        options={{
+          title: "Homepage",
+          headerShown: false,
+          tabBarIcon: ({ color }) => (
+            <Foundation name="home" size={24} color="#063970" />
+          ),
+        }}
+      />
+      <BottomTab.Screen
+        name="Wallet"
+        component={Wallet}
+        options={{
+          title: "Wallet",
+          headerShown: false,
+          tabBarIcon: ({ color }) => (
+            <Entypo name="wallet" size={24} color="#063970" />
+          ),
+        }}
+      />
+      <BottomTab.Screen
+        name="Order"
+        component={Order}
+        options={{
+          title: "Order",
+          headerShown: false,
+          tabBarIcon: ({ color }) => (
+            <Entypo name="wallet" size={24} color="#063970" />
+          ),
+        }}
+      />
+      <BottomTab.Screen
+        name="Message"
+        component={ChatPage}
+        options={{
+          title: "Message",
+          headerShown: true,
+          tabBarIcon: ({ color }) => (
+            <Entypo name="mail" size={24} color="#063970" />
+          ),
+          headerStyle: {
+            backgroundColor: "transparent",
+          },
+          //headerTransparent: true,
+          //  headerBackground(props) {
+          //   return (
+          //    <BlurView
+          //     intensity={100}
+          //     tint='light'
+          //    />
+          //   )
+          //  },
+        }}
+      />
 
-         
       {/* <BottomTab.Screen
         name="TabOne"
         component={TabOneScreen}
@@ -135,7 +179,7 @@ function BottomTabNavigator() {
         name="TabTwo"
         component={TabTwoScreen}
         options={{
-          title: 'Tab Two',
+          title: "Tab Two",
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       />
@@ -147,7 +191,7 @@ function BottomTabNavigator() {
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
  */
 function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
+  name: React.ComponentProps<typeof FontAwesome>["name"];
   color: string;
 }) {
   return <FontAwesome size={30} style={{ marginBottom: -3 }} {...props} />;
