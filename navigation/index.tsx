@@ -103,7 +103,7 @@ function BottomTabNavigator() {
           component={ChatPage}
           options={{
             title: 'Message',
-            headerShown: false,
+            headerShown: true,
             tabBarIcon: ({ color }) =>  <Entypo name="mail" size={24} color="#063970" />, 
           }}
          />

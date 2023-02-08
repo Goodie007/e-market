@@ -7,26 +7,11 @@ export default function ChatPage() {
     <SafeAreaView
       style={{
         backgroundColor: "#EDEDED",
+        paddingHorizontal: 20,
         height: "100%",
       }}
     >
-      <View
-        style={{
-          paddingHorizontal: 20,
-          paddingTop: Platform.OS === "android" ? "20%" : "10%",
-        }}
-      >
-        <Text
-          style={{
-            fontFamily: "Raleway-Bold",
-            color: "#000",
-            fontSize: 18,
-          }}
-        >
-          Welcome back Bistom!
-        </Text>
-        <MessageComponent />
-      </View>
+      <MessageComponent />
     </SafeAreaView>
   );
 }
