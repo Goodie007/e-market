@@ -9,6 +9,7 @@ import {
   NavigationContainer,
   DefaultTheme,
   DarkTheme,
+  useNavigation,
 } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
@@ -45,6 +46,7 @@ export default function Navigation({
 }: {
   colorScheme: ColorSchemeName;
 }) {
+
   return (
     <NavigationContainer
       linking={LinkingConfiguration}
@@ -62,6 +64,7 @@ export default function Navigation({
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function RootNavigator() {
+  const navigation = useNavigation();
   return (
     <Stack.Navigator>
       <Stack.Screen
@@ -74,11 +77,13 @@ function RootNavigator() {
         component={ChatRoom}
         options={{
           //headerBackImageSource: require('../assets/icons/chevron-left'),
-          headerBackImageSource: arrowBack,
+          //headerBackImageSource: arrowBack,
           headerTitleAlign: 'center',
           title: 'chatty',
           headerShadowVisible: false,
           headerBackTitleVisible: false,
+          headerTintColor: '#000',
+          headerLeft: () => <AntDesign name="arrowleft" size={24} color={'black'} onPress={() => navigation.goBack()} />,
         }}
         //initialParams={}
         
