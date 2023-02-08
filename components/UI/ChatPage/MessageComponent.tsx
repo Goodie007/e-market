@@ -73,6 +73,27 @@ export default function MessageComponent() {
       messageTime: "5:35pm",
       messageText: "hey there, hello world",
     },
+    {
+      id: "6",
+      userName: "Jon Doe",
+      userImg: pexel,
+      messageTime: "5:35pm",
+      messageText: "hey there, hello world",
+    },
+    {
+      id: "7",
+      userName: "Jon Doe",
+      userImg: pexel,
+      messageTime: "5:35pm",
+      messageText: "hey there, hello world",
+    },
+    {
+      id: "8",
+      userName: "Jon Doe",
+      userImg: pexel,
+      messageTime: "5:35pm",
+      messageText: "hey there, hello world",
+    },
   ];
 
   const Items = ({
@@ -83,7 +104,11 @@ export default function MessageComponent() {
     userName,
   }: ItemsProps) => {
     return (
-      <View>
+      <View
+        style={{
+          marginTop: 10,
+        }}
+      >
         <View
           style={{
             flexDirection: "row",
@@ -154,7 +179,7 @@ export default function MessageComponent() {
   return (
     <View
       style={{
-        paddingTop: 16,
+        //marginTop: 16,
       }}
     >
       <FlatList
