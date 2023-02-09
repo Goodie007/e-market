@@ -4,10 +4,6 @@ import { View, Text, Platform } from "react-native";
 export default function TopComponent() {
   return (
     <View
-      style={{
-        paddingHorizontal: 20,
-        paddingTop: Platform.OS === "android" ? "20%" : "10%",
-      }}
     >
       <View
         style={{
@@ -39,12 +35,28 @@ export default function TopComponent() {
                 }}
             >JJ</Text>
         </View>
-        <View>
+        <View
+          style={{
+            width: '80%',
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            paddingVertical: 25,
+          }}
+        >
             <Text 
                 style={{
-                    color: 'white'
+                    color: 'white',
+                    fontSize: 22,
+                    fontFamily: 'Raleway-Bold',
                 }}
-            >Hello</Text>
+            >My Shop</Text>
+            <Text
+              style={{
+                color: 'white',
+                fontSize: 16,
+                fontFamily: 'Raleway-Bold',
+              }}
+            >Janet Jackson</Text>
         </View>
       </View>
     </View>
