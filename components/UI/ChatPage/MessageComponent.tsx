@@ -103,6 +103,7 @@ export default function MessageComponent() {
     messageText,
     userName,
   }: ItemsProps) => {
+    const navigation = useNavigation();
     return (
       <View
         style={{

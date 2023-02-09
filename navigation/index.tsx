@@ -37,6 +37,7 @@ import ChatRoom from "../components/UI/ChatPage/ChatRoom";
 //import { createDrawerNavigator } from '@react-navigation/drawer';
 import Hompage from "../screens/Home";
 import { BlurView } from "expo-blur";
+import Profile from "../components/UI/Profile";
 //import { BlurView } from "expo-blur";
 
 const arrowBack = require('../../Remake/assets/icons/chevron-left.png')
@@ -161,15 +162,17 @@ function BottomTabNavigator() {
           headerStyle: {
             backgroundColor: "transparent",
           },
-          //headerTransparent: true,
-          //  headerBackground(props) {
-          //   return (
-          //    <BlurView
-          //     intensity={100}
-          //     tint='light'
-          //    />
-          //   )
-          //  },
+        }}
+      />
+       <BottomTab.Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          title: "Profile",
+          headerShown: false,
+          tabBarIcon: ({ color }) => (
+            <AntDesign name="profile" size={24} color="#063970" />
+          ),
         }}
       />
 
