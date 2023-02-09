@@ -1,9 +1,12 @@
+import { AntDesign } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 import React, { useCallback, useEffect, useState } from "react";
-import { View, Text, SafeAreaView } from "react-native";
+import { View, Text, SafeAreaView, TouchableOpacity } from "react-native";
 import { GiftedChat } from "react-native-gifted-chat";
 
 export default function ChatRoom() {
   const [messages, setMessages] = useState<any>([]);
+  const navigation = useNavigation();
 
   useEffect(() => {
     setMessages([
@@ -26,13 +29,15 @@ export default function ChatRoom() {
   }, []);
 
   return (
+    <>
       <GiftedChat
         messages={messages}
-       onSend={(messages) => onSend(messages)}
+        onSend={(messages) => onSend(messages)}
         user={{
           _id: 1,
         }}
         //renderBubble={renderBubble}
       />
+    </>
   );
 }
