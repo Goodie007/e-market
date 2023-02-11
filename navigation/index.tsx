@@ -38,6 +38,7 @@ import ChatRoom from "../components/UI/ChatPage/ChatRoom";
 import Hompage from "../screens/Home";
 import { BlurView } from "expo-blur";
 import Profile from "../components/UI/Profile";
+import Tribe from "../components/UI/Tribe";
 //import { BlurView } from "expo-blur";
 
 const arrowBack = require('../../Remake/assets/icons/chevron-left.png')
@@ -200,10 +201,12 @@ function BottomTabNavigator() {
       /> */}
       <BottomTab.Screen
         name="TabTwo"
-        component={TabTwoScreen}
+        component={Tribe}
         options={{
-          title: "Tab Two",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: "Test",
+          headerShown: false,
+         // headerLeft: () => <AntDesign name="arrowleft" size={24} color={'black'} onPress={() => navigation.goBack()},
+          //tabBarIcon: ({ color }) => <TabBarIcon name="code" color={'#063970'} />,
         }}
       />
     </BottomTab.Navigator>
