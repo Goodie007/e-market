@@ -1,9 +1,15 @@
 import { AntDesign } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { View, Text, SafeAreaView } from "react-native";
 import Button from "../../constants/Button";
 
 export default function Tribe() {
+    const navigation = useNavigation()
+
+    const handleChange = () => {
+        navigation.navigate('InputPage')
+    }
   return (
     <SafeAreaView
       style={{
@@ -63,7 +69,7 @@ export default function Tribe() {
                 color: '#063970'
 
             }}
-         onPress={undefined} />
+         onPress={handleChange} />
       </View>
     </SafeAreaView>
   );

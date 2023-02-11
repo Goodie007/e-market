@@ -39,6 +39,7 @@ import Hompage from "../screens/Home";
 import { BlurView } from "expo-blur";
 import Profile from "../components/UI/Profile";
 import Tribe from "../components/UI/Tribe";
+import InputPage from "../components/UI/Tribe/InputPage";
 //import { BlurView } from "expo-blur";
 
 const arrowBack = require('../../Remake/assets/icons/chevron-left.png')
@@ -88,8 +89,11 @@ function RootNavigator() {
           headerLeft: () => <AntDesign name="arrowleft" size={24} color={'black'} onPress={() => navigation.goBack()} />,
         }}
         //initialParams={}
-        
       />
+      <Stack.Screen
+        name="Test"
+        component={InputPage}
+       />
       <Stack.Screen
         name="NotFound"
         component={NotFoundScreen}
