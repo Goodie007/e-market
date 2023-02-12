@@ -96,7 +96,7 @@ function RootNavigator() {
         options={{
           headerShown: true,
           headerStyle: {
-            backgroundColor: '#2D5ADF',
+            backgroundColor: '#063970',
           },
           headerShadowVisible: false,
           headerLeft: () => <AntDesign name="arrowleft" size={24} color={'white'} onPress={() => navigation.goBack()} />,

@@ -5,7 +5,7 @@ export default function Top(){
     return (
         <View
             style={{
-                backgroundColor: '#2D5AdF',
+                backgroundColor: '#063970',
                 height: '45%',
                 borderBottomLeftRadius: 30,
                 borderBottomRightRadius: 30,
