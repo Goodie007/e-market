@@ -1,10 +1,16 @@
-import React from 'react';
-import {View, Text} from 'react-native';
+import React from "react";
+import { View, Text, SafeAreaView } from "react-native";
+import Top from "./Top";
 
-export default function InputPage(){
-    return (
-        <View>
-            <Text>Hello</Text>
-        </View>
-    )
+export default function InputPage() {
+  return (
+    <SafeAreaView
+        style={{
+            backgroundColor: '#FFFFFF',
+            height: '100%',
+        }}
+    >
+     <Top />
+    </SafeAreaView>
+  );
 }

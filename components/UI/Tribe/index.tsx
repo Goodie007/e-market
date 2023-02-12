@@ -8,7 +8,7 @@ export default function Tribe() {
     const navigation = useNavigation()
 
     const handleChange = () => {
-        navigation.navigate('InputPage')
+        navigation.navigate('Test')
     }
   return (
     <SafeAreaView

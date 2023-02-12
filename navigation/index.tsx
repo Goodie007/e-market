@@ -93,6 +93,15 @@ function RootNavigator() {
       <Stack.Screen
         name="Test"
         component={InputPage}
+        options={{
+          headerShown: true,
+          headerStyle: {
+            backgroundColor: '#2D5ADF',
+          },
+          headerShadowVisible: false,
+          headerLeft: () => <AntDesign name="arrowleft" size={24} color={'white'} onPress={() => navigation.goBack()} />,
+          headerTintColor: 'white',
+        }}
        />
       <Stack.Screen
         name="NotFound"
