@@ -63,13 +63,13 @@ export default function TribeSheet({ refRBSheet, setImage }: TribesProp) {
         customStyles={{
           wrapper: {
             backgroundColor: "black",
-            opacity: 0.6,
+            opacity: 0.9,
             borderTopLeftRadius: 10,
             borderRadius: 10,
             overflow: "hidden",
           },
           draggableIcon: {
-            backgroundColor: "transparent",
+            backgroundColor: "white",
           },
         }}
       >
