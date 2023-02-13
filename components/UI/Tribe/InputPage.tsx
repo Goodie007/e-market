@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, SafeAreaView } from "react-native";
+import InputWords from "./InputWords";
 import Top from "./Top";
 
 export default function InputPage() {
@@ -11,6 +12,7 @@ export default function InputPage() {
         }}
     >
      <Top />
+     <InputWords />
     </SafeAreaView>
   );
 }
