@@ -36,6 +36,8 @@ export default function ChatRoom() {
         user={{
           _id: 1,
         }}
+        isTyping={true}
+        loadEarlier={true}
         //renderBubble={renderBubble}
       />
     </>
