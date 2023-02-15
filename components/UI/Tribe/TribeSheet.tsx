@@ -62,11 +62,18 @@ export default function TribeSheet({ refRBSheet, setImage }: TribesProp) {
         height={200}
         customStyles={{
           wrapper: {
-            backgroundColor: "black",
-            opacity: 0.9,
+            backgroundColor: "#000",
+            opacity: 0.956,
             borderTopLeftRadius: 10,
-            borderRadius: 10,
             overflow: "hidden",
+           // borderStartColor: 'white',
+            zIndex: 1000
+          },
+          container: {
+            backgroundColor: 'white',
+            zIndex: 100,
+            borderRadius: 15,
+            //opacity: 1,
           },
           draggableIcon: {
             backgroundColor: "white",
