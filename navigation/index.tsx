@@ -40,16 +40,16 @@ import { BlurView } from "expo-blur";
 import Profile from "../components/UI/Profile";
 import Tribe from "../components/UI/Tribe";
 import InputPage from "../components/UI/Tribe/InputPage";
+import Registration from "../components/UI/Onboarding/Registration";
 //import { BlurView } from "expo-blur";
 
-const arrowBack = require('../../Remake/assets/icons/chevron-left.png')
+const arrowBack = require("../../Remake/assets/icons/chevron-left.png");
 
 export default function Navigation({
   colorScheme,
 }: {
   colorScheme: ColorSchemeName;
 }) {
-
   return (
     <NavigationContainer
       linking={LinkingConfiguration}
@@ -71,6 +71,14 @@ function RootNavigator() {
   return (
     <Stack.Navigator>
       <Stack.Screen
+        name="SignUp"
+        component={Registration}
+        options={{
+          title: "Sign up",
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
         name="Root"
         component={BottomTabNavigator}
         options={{ headerShown: false }}
@@ -81,12 +89,19 @@ function RootNavigator() {
         options={{
           //headerBackImageSource: require('../assets/icons/chevron-left'),
           //headerBackImageSource: arrowBack,
-          headerTitleAlign: 'center',
-          title: 'chatty',
+          headerTitleAlign: "center",
+          title: "chatty",
           headerShadowVisible: false,
           headerBackTitleVisible: false,
-          headerTintColor: '#000',
-          headerLeft: () => <AntDesign name="arrowleft" size={24} color={'black'} onPress={() => navigation.goBack()} />,
+          headerTintColor: "#000",
+          headerLeft: () => (
+            <AntDesign
+              name="arrowleft"
+              size={24}
+              color={"black"}
+              onPress={() => navigation.goBack()}
+            />
+          ),
         }}
         //initialParams={}
       />
@@ -96,13 +111,20 @@ function RootNavigator() {
         options={{
           headerShown: true,
           headerStyle: {
-            backgroundColor: '#063970',
+            backgroundColor: "#063970",
           },
           headerShadowVisible: false,
-          headerLeft: () => <AntDesign name="arrowleft" size={24} color={'white'} onPress={() => navigation.goBack()} />,
-          headerTintColor: 'white',
+          headerLeft: () => (
+            <AntDesign
+              name="arrowleft"
+              size={24}
+              color={"white"}
+              onPress={() => navigation.goBack()}
+            />
+          ),
+          headerTintColor: "white",
         }}
-       />
+      />
       <Stack.Screen
         name="NotFound"
         component={NotFoundScreen}
@@ -178,7 +200,7 @@ function BottomTabNavigator() {
           },
         }}
       />
-       <BottomTab.Screen
+      <BottomTab.Screen
         name="Profile"
         component={Profile}
         options={{
@@ -218,7 +240,7 @@ function BottomTabNavigator() {
         options={{
           title: "Test",
           headerShown: false,
-         // headerLeft: () => <AntDesign name="arrowleft" size={24} color={'black'} onPress={() => navigation.goBack()},
+          // headerLeft: () => <AntDesign name="arrowleft" size={24} color={'black'} onPress={() => navigation.goBack()},
           //tabBarIcon: ({ color }) => <TabBarIcon name="code" color={'#063970'} />,
         }}
       />
